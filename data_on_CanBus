@@ -1,0 +1,43 @@
+Fyr Status - Update = 250ms
+Node 464:
+Bit0 = 0/1 => Pause/On
+
+FanSpeed - Update = 2000 ms
+Node 513:
+Bit2 & Bit3 = ((Bit3 * 256) + Bit2) / 25 => 0-100%
+
+Varme Legeme og Central varme pumpe - Update = 250ms
+Node 582:
+Bit0 = 
+0 CVP => Off
+1 CVP => On
+Imellem 32 og 36 = Varmelegeme = On
+
+Temperatur Kede, Rum, VVB & Centralvarme - Update = 250ms
+Node 710:
+Kedel Temp : Bit0 & Bit1 = (Bit1 * 256) + Bit0 => Temp Skala!
+Rum Temp : Bit2 & Bit3 = (Bit3 * 256) + Bit2 => Temp Skala!
+VVB Temp : Bit4 & Bit5 = (Bit5 * 256) + Bit4 => Temp Skala!
+Central Temp : Bit6 & Bit7 = (Bit7 * 256) + Bit6 => Temp Skala!
+
+LAMBDA Prob - Update = 250ms
+Node 720:
+Hvis Fyr Status = 0, Køre LAMBDA sensoren ikke!
+mA : Bit0 & Bit1 = ((Bit1 * 256) + Bit0) / 1000 => Millieampere mA. 
+Prob Temp : Bit2 & Bit3 = (Bit3 * 256) + Bit2 => Temp C.
+O2% : Bit6 & Bit7 = ((Bit7 * 256) + Bit 6) / 100 => Ilt 0.0 til 21.0 %
+
+Turbulatorerne - Update = 250ms
+Node 838:
+Bit 2 : 0/1 => Pause/On
+
+Snegl & VVB Pumpe - Update = 250ms
+Node 1094:
+Snegl : Bit0 : 0/1 => Pause/On
+VVBP : Bit2 : 0/1 => Pause/On
+
+Pille Rist, Flame Lux, Ude Temp - Update = 250ms
+Node 1222:
+Pille Rist : Bit3 = 0/1 => Pause/On
+Ude Temp : Bit4 & Bit5 = (Bit5 * 256) + Bit4 => Temp Skala!
+LUX : Bit6 & Bit7 = ((Bit7 * 256) + Bit6) * 0.062591687 => 0-255 (Faktor for udregne LUX 0-255. canBUS (0 = 255 Lux) - (4090 = 0 Lux)
